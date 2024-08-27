@@ -1,17 +1,34 @@
 <template>
   <div>
-    <h1>Get All Users</h1>
+    <h2>Get all users</h2>
+    <h4>จํานวนผู้ใช้งาน {{ users.length }}</h4>
+    <div v-for="user in users" v-bind:key="user.id">
+      <p>id: {{ user.id }}</p>
+      <p>ชื่อ-นามสกุล: {{ user.name }} - {{ user.lastname }}</p>
+      <p>email: {{ user.email }}</p>
+      <p>password: {{ user.password }}</p>
+      <p><button>ดูข้อมูลผู้ใช้</button></p>
+      <hr>
+    </div>
   </div>
 </template>
 <script>
+import UsersService from '@/services/UsersService'
+
 export default {
-  created() {
-    this.$http.get('http://localhost:8081/users')
-      .then(function (response) {
-        console.log(response)
-      })
-  }
-}
-</script>
+  data() {
+    return {
+      users: []
+    }
+  },
+  async created() {
+    this.users = (await UsersService.index()).data
+  }, 
+    methods: { 
+      navigateTo (route) { 
+        this.$router.push(route) 
+      },
+    }  
+} 
 </script>
 <style scoped></style>
