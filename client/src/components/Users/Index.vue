@@ -4,10 +4,11 @@
     <h4>จํานวนผู้ใช้งาน {{ users.length }}</h4>
     <div v-for="user in users" v-bind:key="user.id">
       <p>id: {{ user.id }}</p>
-      <p>ชื่อ-นามสกุล: {{ user.name }} - {{ user.lastname }}</p>
+      <p>ชื่อผู้ใช้: {{ user.name }} {{ user.lastname }}</p>
       <p>email: {{ user.email }}</p>
-      <p>password: {{ user.password }}</p>
-      <p><button>ดูข้อมูลผู้ใช้</button></p>
+      <p>status: {{ user.status }}</p>
+      <p>type: {{ user.type }}</p>
+      <p><button v-on:click="navigateTo('/user/'+user.id)">ดูข้อมูลผู ้ใช้</button></p>
       <hr>
     </div>
   </div>
