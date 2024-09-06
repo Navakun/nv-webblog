@@ -22,7 +22,7 @@ routes: [
             component: UserCreate 
           }, 
           { 
-            path: '/user/edit', 
+            path: '/user/edit/:userId', 
             name: 'user-edit', 
             component: UserEdit 
           }, 

@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Create User</h1>
-    <form v-on:submit.prevent="createUser">
+    <form v-on:submit.prevent="navigator">
       <p>name: <input type="text" v-model="user.name"></p>
       <p>lastname: <input type="text" v-model="user.lastname"></p>
       <p>email: <input type="text" v-model="user.email"></p>
